@@ -72,7 +72,37 @@ async function remove(userId)
         console.log(err)
     }
 }
+async function edit(userId)
+{
+  try{
+    
+   const response= await axios.get(`http://localhost:3000/edit/${userId}`)
+   console.log(response)
+   var expense = response.data.Expenses
+   var purpose = response.data.Purpose
+   var category = response.data.Category
 
+   /*let object={
+    expense,
+    purpose,
+    category
+   }*/
+   
+   //document.getElementById('inputdefault-c').value= response.data.Category
+   userList.remove(userId)
+  
+   document.getElementById('inputdefault-e').value= response.data.Expenses
+   document.getElementById('inputdefault-p').value= response.data.Purpose
+   //Update.addEventListener("click",edits(object,userId))
+    
+   // const response1= await axios.put(`http://localhost:3000/edit/${userId}`)
+   }
+  
+  catch(err){
+    console.log(err)
+  }
+
+}
 
  /*   var newli =document.createElement('li');
      var text1 = document.createTextNode(expense+"-"+purpose+"-"+id);
