@@ -39,4 +39,11 @@ exports.DeleteExpense= (req,res,next)=>{
         console.log(err)
     })
 }
+exports.EditExpense = (res,req,next)=>{
+    console.log(req.params.id)
+    Expense.findByPk(req.params.id).then(user=>{
+        return res.json(user)
+    }).catch(err=>{
+        console.log(err)
+    })
 
